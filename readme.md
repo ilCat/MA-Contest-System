@@ -1,2 +1,2 @@
 # Martial Arts contest system 
-The aim of this proyect is create a web aplication to track the on going of a martial arts contest
+The aim of this project is creating a web application to track the ongoing of a martial arts contest
