@@ -1,14 +1,23 @@
 version: '3.9'
 services:
   backend:
+    container_name: Backend
     build: ./backend
     ports:
       - '8080:8080'
     volumes:
       - ./backend:/app
-    command: [ 'python', 'main.py' ]
+    command: [ 'python', 'app/main.py' ]
   frontend:
+    container_name: Frontend
     build: ./client
 
   db:
     image: postgres
+    container_name: PostgresMACS
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123
+      - POSTGRES_DB=postgresmacs
+    expose:
+      - 5432
