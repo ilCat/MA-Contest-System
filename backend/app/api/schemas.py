@@ -20,4 +20,7 @@ class Player(BaseModel):
     weight: float
     belt_category: str
     team_id: int
-    is_HPTeam: Optional[bool] ## High Performance Team
+    is_HPTeam: bool ## High Performance Team
+
+class Id(BaseModel):
+    Id: int

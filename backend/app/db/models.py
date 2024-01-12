@@ -1,10 +1,10 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Float, DateTime, Table
 from sqlalchemy.orm import relationship , DeclarativeBase
+from sqlalchemy.ext.declarative import declarative_base
 
-from app.db.db import Base
-
-# class Base(DeclarativeBase):
-#     pass
+# Base = declarative_base()
+class Base(DeclarativeBase):
+    pass
 
 class SecurityGroup(Base):
     __tablename__ = "security_groups"
@@ -23,7 +23,7 @@ class User(Base):
     last_name = Column(String)
     use_name = Column(String, unique=True)
     password = Column(String)
-    group_Id = Column(Integer, ForeignKey('SecurityGroup','security_groups.Id', ondelete="CASCADE"))
+    group_Id = Column(Integer, ForeignKey('security_groups.id', ondelete="CASCADE"))
     is_active = Column(Boolean, default=True)
     team =relationship('Team')
 
@@ -34,7 +34,7 @@ class Team(Base):
     name = Column(Integer, nullable=False)
     description = Column(String)
     location = Column(String)
-    owner_id = Column(Integer,ForeignKey('User','users.id'))
+    owner_id = Column(Integer,ForeignKey('users.id'))
     is_active = Column(Boolean, default=True)
     player = relationship('Player')
 
@@ -76,7 +76,7 @@ class Category(Base):
     
     id = Column(Integer, primary_key=True, index=True)
     description = Column(String,nullable=False)
-    spec_Id = Column(Integer, ForeignKey('Specification', 'specifications.Id'))
+    spec_Id = Column(Integer, ForeignKey('specifications.id'))
     # spec = relationship(secondary=category_spec)
     duel = relationship('Duel')
 
@@ -90,21 +90,21 @@ class Player(Base):
     age = Column(Integer, index=True,nullable=False)
     weight = Column(Float, index=True)
     belt_category = Column(String, nullable=False)
-    team_id = Column(Integer, ForeignKey('Team','teams.id'))
+    team_id = Column(Integer, ForeignKey('teams.id'))
     is_HPTeam = Column(Boolean, default=True) ## High Performance Team
 
 class Duel(Base):
-    __tablename__= "Duels"
+    __tablename__= "duels"
 
     id = Column(Integer, primary_key=True, index=True)
-    category_Id = Column(Integer, ForeignKey('Category', 'categories.Id'))
-    player1_Id = Column(Integer, ForeignKey('Player', 'players.Id'))
-    player2_Id = Column(Integer, ForeignKey('Player', 'players.Id'))
+    category_Id = Column(Integer, ForeignKey( 'categories.id'))
+    player1_Id = Column(Integer, ForeignKey('players.id'))
+    player2_Id = Column(Integer, ForeignKey('players.id'))
     player1_score = Column(Integer)
     plater2_score = Column(Integer)
     player1_fault = Column(Integer)
     plater2_fault = Column(Integer)
-    win_id = Column(int)
+    win_id = Column(Integer)
     start_time = Column(DateTime)
     endTime = Column(DateTime)
 

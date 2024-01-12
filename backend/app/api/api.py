@@ -1,17 +1,23 @@
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from .enpoints import users
-from db.db import engine ,Base
+from .endpoints import users as users
+from .endpoints import players as players
+from db.db import engine 
+from db import models as model
+from typing import Annotated 
+from sqlalchemy.orm import Session
 
-
-def create_tables():
-    return Base.metadata.create_all(bind=engine)
-
-create_tables()
 
 app = FastAPI()
+
+model.Base.metadata.create_all(bind=engine)
+
+# create_tables()
+
 app.include_router(users.router)
+app.include_router(players.router)
+
 origins = [
     'http://localhost',
     'localhost'
@@ -24,7 +30,9 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+# db_dependency = Annotated[Session, Depends(get_db)]
+
+# @app.get("/")
+# async def root():
+#     return {"message": "Hello World"}
 

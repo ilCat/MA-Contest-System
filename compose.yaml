@@ -8,16 +8,27 @@ services:
     volumes:
       - ./backend:/app
     command: [ 'python', 'app/main.py' ]
+    depends_on:
+      - db
+
   frontend:
     container_name: Frontend
     build: ./client
 
   db:
     image: postgres
-    container_name: PostgresMACS
+    container_name: postgresmacs
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres123
       - POSTGRES_DB=postgresmacs
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     expose:
       - 5432
+
+volumes:
+  postgres_data:
+
+
