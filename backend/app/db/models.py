@@ -10,6 +10,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship, DeclarativeBase
 from sqlalchemy.ext.declarative import declarative_base
+from datetime import datetime
 
 
 # Base = declarative_base()
@@ -33,11 +34,22 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     name = Column(String)
     last_name = Column(String)
-    use_name = Column(String, unique=True)
+    user_name = Column(String, unique=True)
     password = Column(String)
     group_Id = Column(Integer, ForeignKey("security_groups.id", ondelete="CASCADE"))
     is_active = Column(Boolean, default=True)
     team = relationship("Team")
+    token = relationship("Token")
+
+
+class Token(Base):
+    __tablename__ = "token"
+
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"))
+    access_toke = Column(String(450), primary_key=True)
+    refresh_toke = Column(String(450), nullable=False)
+    status = Column(Boolean)
+    created_date = Column(DateTime, default=datetime.now)
 
 
 class Team(Base):

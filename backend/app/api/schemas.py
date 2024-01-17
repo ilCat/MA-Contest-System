@@ -4,18 +4,13 @@ from datetime import datetime
 
 
 class SecurityGroup(BaseModel):
-    id: Annotated[int, None]
+    id: Optional[int]
     name: str
     description: str
 
-    # def __init__(self, id: Annotated[int, None], name: str, description: str):
-    #     self.id: id
-    #     self.name: name
-    #     self.description: description
-
 
 class User(BaseModel):
-    id: int
+    id: Optional[int]
     email: str
     name: str
     last_name: str
@@ -26,7 +21,7 @@ class User(BaseModel):
 
 
 class Player(BaseModel):
-    id: int
+    id: Optional[int]
     name: str
     last_name: str
     age: int
@@ -38,3 +33,27 @@ class Player(BaseModel):
 
 class Id(BaseModel):
     Id: int
+
+
+class LoginRequest(BaseModel):
+    email: str
+    password: str
+
+
+class TokenSchema(BaseModel):
+    access_token: str
+    refresh_token: str
+
+
+class changepassword(BaseModel):
+    email: str
+    old_password: str
+    new_password: str
+
+
+class TokenCreate(BaseModel):
+    user_id: str
+    access_token: str
+    refresh_token: str
+    status: bool
+    created_date: datetime

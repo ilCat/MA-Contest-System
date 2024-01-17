@@ -11,9 +11,9 @@ services:
     depends_on:
       - db
 
-  frontend:
-    container_name: Frontend
-    build: ./client
+  # frontend:
+  #   container_name: Frontend
+  #   build: ./client
 
   db:
     image: postgres

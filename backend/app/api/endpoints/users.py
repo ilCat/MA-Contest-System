@@ -4,8 +4,10 @@ from typing import Annotated
 from sqlalchemy.orm import Session
 from db.db import get_db
 from db import models as model
+from core.auth.auth_bearer import JWTBearer
 
 db_dependency = Annotated[Session, Depends(get_db)]
+dependencies = Depends(JWTBearer())
 router = APIRouter(prefix="/user", tags=["user"])
 
 
@@ -48,8 +50,10 @@ async def createUser(user: User, db: db_dependency):
         email=user.email,
         name=user.name,
         last_name=user.last_name,
+        user_name=user.user_name,
         password=user.password,
         group_Id=user.group_Id,
+        is_active=user.is_active,
     )
     db.add(new_user)
     db.commit()
@@ -57,9 +61,9 @@ async def createUser(user: User, db: db_dependency):
     return user.model_dump()
 
 
-@router.get("/getUsersByTeam")
-async def getAllUsers(db: db_dependency):
-    result = db.query(model.User).where(model.User.team)
+@router.get("/getAllUsers")
+async def getAllUsers(dependencies, db: db_dependency):
+    result = db.query(model.User).all()
     if not result:
         raise HTTPException(detail="DB error getting users", status_code=404)
     print(result)

@@ -3,3 +3,6 @@ pydantic
 uvicorn
 sqlalchemy
 psycopg2
+passlib
+python-jose
+jwt
