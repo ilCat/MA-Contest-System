@@ -1,9 +1,15 @@
-from ..schemas import User, SecurityGroup, changepassword, TokenSchema, LoginRequest
+from schemas.schemas import (
+    User,
+    SecurityGroup,
+    changepassword,
+    TokenSchema,
+    LoginRequest,
+)
 from fastapi import APIRouter, Depends, HTTPException
 from typing import Annotated
 from sqlalchemy.orm import Session
 from db.db import get_db
-from db import models as model
+from models import models as model
 from core.auth.auth_bearer import JWTBearer
 from core.auth.util import (
     get_hashed_password,

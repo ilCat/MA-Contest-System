@@ -3,7 +3,7 @@ from jwt.exceptions import JWSDecodeError
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi import Request, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from db.models import Token
+from models.models import Token
 from ..config import (
     ACCESS_TOKEN_EXPIRE_MINUTES,
     REFRESH_SECRET_KEY,

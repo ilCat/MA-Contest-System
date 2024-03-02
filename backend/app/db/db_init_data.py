@@ -1,10 +1,10 @@
-from api.endpoints import users
-from db.db import get_db
+from endpoints import users
+from .db import get_db
 from fastapi import Depends
 from sqlalchemy.orm import Session
 from typing import Annotated
 import asyncio
-from api.schemas import User, SecurityGroup
+from schemas.schemas import User, SecurityGroup
 
 
 # db_dependency = Annotated[Session, Depends(get_db)]

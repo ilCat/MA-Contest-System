@@ -1,11 +1,11 @@
 import os
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from .endpoints import users
-from .endpoints import players
-from .endpoints import login
+from endpoints import users
+from endpoints import players
+from endpoints import login
 from db.db import engine
-from db import models as model
+from models import models as model
 from typing import Annotated
 from sqlalchemy.orm import Session
 
@@ -31,6 +31,7 @@ app.add_middleware(
 
 # db_dependency = Annotated[Session, Depends(get_db)]
 
-# @app.get("/")
-# async def root():
-#     return {"message": "Hello World"}
+
+@app.get("/")
+async def root():
+    return {"Martial Arts contest system "}

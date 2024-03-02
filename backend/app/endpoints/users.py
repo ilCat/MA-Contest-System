@@ -1,9 +1,9 @@
-from ..schemas import User, SecurityGroup
+from schemas.schemas import User, SecurityGroup
 from fastapi import APIRouter, Depends, HTTPException
 from typing import Annotated
 from sqlalchemy.orm import Session
 from db.db import get_db
-from db import models as model
+from models import models as model
 from core.auth.auth_bearer import JWTBearer
 
 db_dependency = Annotated[Session, Depends(get_db)]

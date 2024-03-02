@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
-from api.schemas import Player, Id
+from schemas.schemas import Player, Id
 from typing import Annotated
 from sqlalchemy.orm import Session
 from db.db import get_db
-from db import models as model
+from models import models as model
 
 db_dependency = Annotated[Session, Depends(get_db)]
 router = APIRouter(prefix="/player", tags=["player"])
