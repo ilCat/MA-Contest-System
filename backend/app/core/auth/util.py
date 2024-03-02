@@ -1,7 +1,7 @@
 import os
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
-from typing import Union, AnyS
+from typing import Union, Any
 from jose import jwt
 from ..config import (
     ALGORITHM,

@@ -19,10 +19,12 @@ REFRESH_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7  # 7 days
 # PROJECT_NAME: str
 # SENTRY_DSN: Optional[HttpUrl] = None
 
-# POSTGRES_SERVER: str
-# POSTGRES_USER: str
-# POSTGRES_PASSWORD: str
-# POSTGRES_DB: str
-SQLALCHEMY_DATABASE_URL: Optional[
-    PostgresDsn
-] = "postgresql://postgres:postgres123@db:5432/postgresmacs"
+POSTGRES_HOST: str = "db"
+POSTGRES_PORT: str = "5432"
+POSTGRES_USER: str = "postgres"
+POSTGRES_PASSWORD: str = "postgres123"
+POSTGRES_DB: str = "postgresmacs"
+
+SQLALCHEMY_DATABASE_URL = f"postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
+# SQLALCHEMY_DATABASE_URL="postgresql://postgres:postgres123@db:5432/postgresmacs"
+# SQLALCHEMY_DATABASE_URL_Local ="postgresql://postgres:postgres123@localhost:5432/postgresmacs"
