@@ -23,10 +23,10 @@ to run migration
 
 # TODO:
 ## API
-- Restructurate project
 - Add Tournament table(think about the design) 
 - Add tables digram 
 - Add category logic 
+- Add tests
 
 ## APP
 - Create APP base using Starting point

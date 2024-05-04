@@ -11,9 +11,17 @@ services:
     depends_on:
       - db
 
-  # frontend:
-  #   container_name: Frontend
-  #   build: ./client
+  frontend:
+    container_name: Frontend
+    build: ./frontend
+    ports:
+      - '5173:5173'
+    volumes:
+      - ./frontend:/app
+    command: [ 'npm', 'run', 'dev' ]
+    # depends_on:
+    #   - 
+
 
   db:
     image: postgres
