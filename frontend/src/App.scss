@@ -1,0 +1,23 @@
+#root {
+  height: 100%;
+  width: 99%;
+
+  .ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+}
+
+.main-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page {
+  height: 100%;
+  width: 100%;
+  flex: auto;
+}

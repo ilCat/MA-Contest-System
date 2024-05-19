@@ -1,0 +1,15 @@
+.top-bar {
+  width: 100%; //calc(100% - 5px);
+  height: var(--topbar-height);
+  background-color: var(--primary-500);
+  color: var(--bg-secondary);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-color: var(--bg-primary);
+  border-bottom-style: double;
+  border-bottom-width: thin;
+  // padding-left: 5px;
+  // padding-right: 5px;
+}
