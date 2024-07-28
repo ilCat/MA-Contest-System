@@ -13,30 +13,15 @@
   position: relative;
   margin-right: 4px;
 
-  // &-collapsed {
-  //   width: 60px;
-  // }
 
   &-list {
     width: 100%;
-    // height: 100%;
     display: flex;
     flex-direction: row;
     background-color: var(--color-primary);
     background-color: var(--color-primary);
     transition: all 0.3s ease-out;
     will-change: transform;
-    // overflow-x: hidden;
-    // overflow-y: auto;
-    // direction: rtl;
-
-    // &::-webkit-scrollbar {
-    //   width: 1px;
-    // }
-
-    // &::-webkit-scrollbar-track {
-    //   background: #f1f1f1;
-    // }
 
     &::-webkit-scrollbar-thumb {
       background: var(--bg-hover);
@@ -46,22 +31,18 @@
   &-logo {
     width: 70px;
     height: var(--menu-height);
-    // margin-bottom: 15px;
-    // margin-left: auto;
-    // margin-right: auto;
   }
 
   &-item {
-    // background-color: var(--bg-secondary);
     color: var(--color-primary);
     padding: 5px;
-    // cursor: pointer;
     transition: all 0.3s ease-out;
     direction: ltr;
     width: fit-content;
     text-align: left;
     border-radius: 2px;
     display: flex;
+
 
     & a {
       color: var(--bg-secondary);
@@ -79,22 +60,17 @@
     &:hover,
     &-active {
       background-color: var(--bg-hover);
+      border-radius: 6px;
 
       & a {
-        // color: white;
         width: 100%;
       }
 
-      // & svg {
-      //   // color: white;
-      // }
     }
   }
 
   &-bottom {
     margin-top: 0px;
-    // padding-top: 5px;
-    // margin-bottom: 5px;
     display: flex;
     width: 60px;
     justify-content: space-evenly;
@@ -102,31 +78,17 @@
     align-content: start;
     flex-direction: column;
     height: var(--menu-height);
-
-    // flex-wrap: wrap;
-    // border-top: 1px dashed var(--bg-hover);
   }
 
   &-icon {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-inline: 4px;
   }
 
   &-item-bottom {
-    margin: 10px;
-    background-color: var(--bg-secondary);
-    color: var(--color-primary);
-    // border-color: 1px solid var(--bg-hover);
-    width: 40px; // var(--menu-height)/2;
-    // height: var(--menu-height);
-
-    // border-radius: 50%;
-    // padding: 5px;
-    // cursor: pointer;
+    color: var(--bg-secondary);
     transition: all 0.3s;
     display: flex;
     flex-direction: column;
-    // flex-wrap: nowrap;
     align-content: center;
     justify-content: center;
     align-items: center;

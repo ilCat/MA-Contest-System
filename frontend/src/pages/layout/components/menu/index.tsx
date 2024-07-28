@@ -18,7 +18,7 @@ interface IMenuProps {
 const Menu = ({ visible, isCollapsed = false }: IMenuProps) => {
   const [collapsed, setCollapsed] = useState(isCollapsed)
   const [activeItem, setActiveItem] = useState<string>()
-  const { user, logout } = useContext(AuthContext)
+  const { user, logout, login } = useContext(AuthContext)
 
   const CollapseStatusIcon = collapsed ? 'chevron-right' : 'chevron-left'
   const isCollapseClassName = collapsed ? 'menu-collapsed' : ''
@@ -45,6 +45,13 @@ const Menu = ({ visible, isCollapsed = false }: IMenuProps) => {
             ))}
           </ul>
           <ul className="menu-bottom">
+          <MenuItemBottom
+              icon="user"
+              link="app/login"
+              visible={true}
+              description={'Login'}
+              // onClick={() => login()}
+            />
             <MenuItemBottom
               icon="sign-out"
               link="/"

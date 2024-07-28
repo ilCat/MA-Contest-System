@@ -14,6 +14,7 @@ import './App.scss'
 const NoData = lazy(() => import('./components/no-data/no-data'))
 const Login = lazy(() => import('./pages/login'))
 const Layout = lazy(()=> import('./pages/layout'))
+const Layout2 = lazy(()=> import('./pages/layout/index-new'))
 const TeamAdmin = lazy(()=> import('./pages/team-admin'))
 const LoadResult = lazy(()=> import('./pages/load-result'))
 function App() {
@@ -39,6 +40,14 @@ function App() {
             </Suspense>
           }
         >
+        {/* <Route
+          path="/app"
+          element={
+            <Suspense fallback={<NoData message="Loading Layout..." icon="circle-notch" spin={true} />}>
+              <Layout2/>
+            </Suspense>
+          }
+        /> */}
         <Route
           path="/app/TeamAdmin"
           element={
