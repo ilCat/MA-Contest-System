@@ -10,13 +10,12 @@ library.add(fas, far)
 import { lazy, Suspense } from 'react'
 import { AuthContextProvider } from './context/AuthContext'
 import './App.scss'
-import TeamAdmin from './pages/team-admin'
-
-
 
 const NoData = lazy(() => import('./components/no-data/no-data'))
 const Login = lazy(() => import('./pages/login'))
 const Layout = lazy(()=> import('./pages/layout'))
+const TeamAdmin = lazy(()=> import('./pages/team-admin'))
+const LoadResult = lazy(()=> import('./pages/load-result'))
 function App() {
   
   return (
@@ -45,6 +44,14 @@ function App() {
           element={
             <Suspense fallback={<NoData message="Loading Layout..." icon="circle-notch" spin={true} />}>
               <TeamAdmin/>
+            </Suspense>
+          }
+        ></Route>
+        <Route
+          path="/app/LoadResults"
+          element={
+            <Suspense fallback={<NoData message="Loading Layout..." icon="circle-notch" spin={true} />}>
+              <LoadResult/>
             </Suspense>
           }
         ></Route>

@@ -7,6 +7,7 @@ import {
     UserOutlined,
   } from '@ant-design/icons';
 import LoadFile from './components/load-file';
+import TeamDetail from './components/team-detail';
 export interface ITeamItems {
     title: string
     order: number
@@ -15,7 +16,7 @@ export interface ITeamItems {
 }
 export const teamItems: ITeamItems[] = [
     {title:'Load Competitor',order: 1,icon: <UserOutlined />,render:<LoadCompetitor/>},
-    {title:'Team Detail',order: 2,icon: <DesktopOutlined />,render:<></>},
+    {title:'Team Detail',order: 2,icon: <DesktopOutlined />,render:<TeamDetail/>},
     {title:'Competitor List',order: 3,icon: <TeamOutlined  />,render:<></>},
     {title:'Load file',order: 4,icon: <FileOutlined />,render:<LoadFile/>},
 ]

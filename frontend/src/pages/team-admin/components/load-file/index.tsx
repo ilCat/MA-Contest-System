@@ -13,7 +13,7 @@ const LoadFile = () => (
     <Table columns={columns} dataSource={data} />
     </div>
   </div>
-);
+)
 
 export default LoadFile
 

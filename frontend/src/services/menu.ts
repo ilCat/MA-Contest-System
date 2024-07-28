@@ -56,7 +56,7 @@ export const  MENU_ITEMS: MenuItems[] = [
   {
     text: 'Load Results',
     icon: 'database' as IconProp,
-    link: '/app/loadData',
+    link: '/app/loadResults',
     visible: true,
     group: ['ORG-Staff']
   }
