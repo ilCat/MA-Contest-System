@@ -10,6 +10,7 @@ library.add(fas, far)
 import { lazy, Suspense } from 'react'
 import { AuthContextProvider } from './context/AuthContext'
 import './App.scss'
+import TeamAdmin from './pages/team-admin'
 
 
 
@@ -39,6 +40,14 @@ function App() {
             </Suspense>
           }
         >
+        <Route
+          path="/app/TeamAdmin"
+          element={
+            <Suspense fallback={<NoData message="Loading Layout..." icon="circle-notch" spin={true} />}>
+              <TeamAdmin/>
+            </Suspense>
+          }
+        ></Route>
           <Route path="*" element={<NoData message="Hmm...this page doesn’t exist." icon="warning" spin={false} />} />
         </Route>
       </Routes>
